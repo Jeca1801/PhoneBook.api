@@ -28,7 +28,6 @@ public class ContactController {
     public void addContact(@RequestBody Contact contact) {
         contactService.addContact(contact);
     }
-
     // Todo the edit method
     @RequestMapping(value = "/contacts/{id}", method = RequestMethod.PUT)
     public void addContact(@RequestBody Contact contactToEdit,  @PathVariable long id){
@@ -39,14 +38,8 @@ public class ContactController {
         contactService.deleteContact(id);
     }
 
-
     @RequestMapping(value = "/search/{name}", method = RequestMethod.GET)
     public Contact searchForContact(@PathVariable String name){
         return contactService.findContactByName(name);
     }
-
-
-
-
-
 }

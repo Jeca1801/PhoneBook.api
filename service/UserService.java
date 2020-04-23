@@ -63,6 +63,7 @@ public class UserService {
     public void createUser(SiteUser user) {
         userRepository.save(user);
     }
+
     public List<Contact> findContactsForUser(String name){
         List<SiteUser> userList = getAllusers();
         for(SiteUser u : userList){

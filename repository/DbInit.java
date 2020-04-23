@@ -1,6 +1,7 @@
 
 package com.example.demo.repository;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import com.example.demo.Entities.Contact;
@@ -33,9 +34,9 @@ public class DbInit implements CommandLineRunner{
         //sparar alla users i db när programmt körs
         this.userRepository.saveAll(users);
 
-        Contact contact1 = new Contact("Sam", "07323234", "nice guy");
-        Contact contact2 = new Contact("Joe", "07033727", "cool guy");
-        Contact contact3 = new Contact("Sara", "07624282", "boring girl");
+        Contact contact1 = new Contact("Sam", "07323234", "nice guy", new Date());
+        Contact contact2 = new Contact("Joe", "07033727", "cool guy", new Date());
+        Contact contact3 = new Contact("Sara", "07624282", "boring girl", new Date());
 
         List<Contact> contacts = Arrays.asList(contact1, contact2, contact3);
 

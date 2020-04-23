@@ -1,9 +1,9 @@
 
 package com.example.demo.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
 import com.example.demo.Entities.Contact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +16,7 @@ public class ContactService {
     private ContactRepository contactRepository;
 
     public void addContact(Contact contact) {
+        contact.setCreatedAt(new Date());
         contactRepository.save(contact);
     }
 

@@ -22,5 +22,4 @@ public class UserController {
     public List<SiteUser> getAllUsers(){
         return userRepository.findAll();
     }
-
 }

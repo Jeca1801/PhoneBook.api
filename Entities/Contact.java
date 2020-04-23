@@ -1,6 +1,11 @@
 package com.example.demo.Entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,80 +13,25 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
+@NoArgsConstructor @Getter @Setter
 public class Contact implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
     private String name;
     private String phoneNumber;
     private String description;
     private String hobbies;
+    private Date createdAt;
 
     @ManyToOne
     private SiteUser siteuser;
 
-
-    public Contact(Contact contact){
-        this.id = contact.getId();
-        this.name = contact.getName();
-        this.phoneNumber = contact.getPhoneNumber();
-    }
-    public Contact(String name, String phoneNumber, String description){
+    public Contact(String name, String phoneNumber, String description, Date createdAt){
+        this.createdAt = createdAt;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.description = description;
     }
-    public Contact(){
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public SiteUser getSiteuser() {
-        return siteuser;
-    }
-
-    public void setSiteuser(SiteUser siteuser) {
-        this.siteuser = siteuser;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getHobbies() {
-        return hobbies;
-    }
-
-    public void setHobbies(String hobbies) {
-        this.hobbies = hobbies;
-    }
-
-
 }

@@ -25,20 +25,24 @@ public class ContactController {
         return contactService.findContactById(id);
     }
     @RequestMapping(value = "/contacts", method = RequestMethod.POST)
+    //calls the contact service which adds the contact to the db
     public void addContact(@RequestBody Contact contact) {
         contactService.addContact(contact);
     }
     // Todo the edit method
     @RequestMapping(value = "/contacts/{id}", method = RequestMethod.PUT)
     public void addContact(@RequestBody Contact contactToEdit,  @PathVariable long id){
+        //calls the contactservice which edits the contact, checks matching id and adds the new contact
         contactService.editContact(id, contactToEdit);
     }
     @RequestMapping(value = "/contacts/{id}", method = RequestMethod.DELETE)
+    // checks the matching id and deletes the contact
     public void deleteContact(@PathVariable long id){
         contactService.deleteContact(id);
     }
 
     @RequestMapping(value = "/search/{name}", method = RequestMethod.GET)
+    //searches for the contact by name and returns it as an object
     public Contact searchForContact(@PathVariable String name){
         return contactService.findContactByName(name);
     }

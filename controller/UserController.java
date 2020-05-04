@@ -15,10 +15,12 @@ public class UserController {
 
     private final UserRepository userRepository;
 
+
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
     @RequestMapping(value = "/users", method = RequestMethod.GET)
+    //gets all the users
     public List<SiteUser> getAllUsers(){
         return userRepository.findAll();
     }

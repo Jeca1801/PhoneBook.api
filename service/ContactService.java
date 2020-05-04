@@ -15,18 +15,25 @@ public class ContactService {
     @Autowired
     private ContactRepository contactRepository;
 
+    //adds a contact
     public void addContact(Contact contact) {
+        //sets the created date at "now"
         contact.setCreatedAt(new Date());
+        //saves it to the db
         contactRepository.save(contact);
     }
-
+    //method that gets all the contacts
     public List<Contact> getAllContacts() {
         return contactRepository.findAll();
     }
 
+    // method that edits a contact
     public Contact editContact(long contactId, Contact contactToEdit) {
+        //loops through all the contacts
         for (Contact c : getAllContacts()) {
+            //cheks if the id och the list matches the contactid we put in
             if (c.getId() == contactId) {
+                //uppdates the new contact and stores it in the db
                 contactRepository.save(contactToEdit);
             }
         }
